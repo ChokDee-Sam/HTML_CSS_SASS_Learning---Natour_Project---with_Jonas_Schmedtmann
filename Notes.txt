@@ -1,0 +1,41 @@
+
+/* On réinitialise le tout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mais on met tout ce qui est lié à la police d'écriture dans le body */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17;
+    lighting-color: #777;
+}
+
+/* clip-path fonctionne par points X Y */
+clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+
+On utilise un h1 qui englobe des span en display block, pour faire un titre sur plusieurs lignes
+<h1 class="heading-primary">
+                <span class="heading-primary-main">Outdoors</span>
+                <span class="heading-primary-sub">is where life happens</span>
+</h1>
+
+Pour éviter un petit bug de tremblement sur une animation/transition
+    backface-visibility: hidden;  (dans le bloc parent ?)
+
+    selection > CTRL + D = selection multiple par étapes
+
+    Possibilité de mettre des animation: keyframeName sur des hover etc
+
+    un lien deguisé en bouton necessite un display inline block
+            afin de preserver le flux des elements d'avant et apres 
+                    (pas de superposition)
+
+Pour centrer un element facilement
+    il faut qu'il ait des caracteristiques de texte (inline block)
+        text-align: center;     sur son conteneur parent
