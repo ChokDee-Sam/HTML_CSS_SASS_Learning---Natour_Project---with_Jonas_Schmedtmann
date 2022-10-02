@@ -1,3 +1,26 @@
+/* Header */
+@keyframes moveHeader {
+    0% {
+        clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+        transform: translateX(100px) scale(0.85);
+    }
+    40% {
+        /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
+        /* clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); */
+    }
+    /* alternative en retirant le 40% */
+    75% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    100% {
+        clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%);
+    }
+}
+
+/*******************************/
+
+/*******************************/
+
 /* Title : first line */
 @keyframes moveFromLeft {
     0% {
@@ -21,10 +44,29 @@
         letter-spacing: 1;
     }
 }
+
 /*******************************/
+
 /*******************************/
 /* Title : sub  line */
-@keyframes moveFromRight {
+@keyframes moveFromBottom {
+    0% {
+        opacity: 0;
+        transform: translatey(105px);
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translatey(0);
+        letter-spacing: 1;
+    }
+}
+
+/*******************************/
+/* Title : button */
+@keyframes moveFromBottom {
     0% {
         opacity: 0;
         transform: translatey(105px);
@@ -39,26 +81,7 @@
     }
 }
 /*******************************/
-/*******************************/
-/* Header */
-@keyframes moveHeader {
-    0% {
-        clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
-        transform: translateX(100px) scale(0.85);
-    }
-    40% {
-        /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
-        /* clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); */
-    }
-    /* alternative en retirant le 40% */
-    75% {
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    }
-    100% {
-        clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%);
-    }
-}
-/*******************************/
+
 /*******************************/
 /* test */
 @keyframes test {
@@ -76,3 +99,4 @@
         clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%);
     }
 }
+/*******************************/

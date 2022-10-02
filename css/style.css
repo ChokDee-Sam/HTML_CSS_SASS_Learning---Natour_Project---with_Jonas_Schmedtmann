@@ -35,8 +35,8 @@ body {
     height: 95vh;
     background-image: linear-gradient(
             to right bottom,
-            rgba(126, 213, 111, 0.8),
-            rgba(39, 180, 133, 0.8)
+            rgba(126, 213, 111, 0.85),
+            rgba(39, 180, 133, 0.85)
         ),
         url(/img/hero.jpg);
     background-size: cover;
@@ -76,6 +76,7 @@ body {
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 60px;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0, 0.3);
 }
 .heading-primary-main {
     display: block;
@@ -89,9 +90,9 @@ body {
 .heading-primary-sub {
     display: block;
     font-size: 20px;
-    font-weight: 700px;
+    font-weight: 700;
     letter-spacing: 17.4px;
-    animation: moveFromRight 2.6s;
+    animation: moveFromBottom 2.6s;
 }
 /*******************************/
 
@@ -101,26 +102,74 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 15px 25px;
     display: inline-block;
-    transition: 0.3s all;
     border-radius: 100px;
+
     transition: all 0.3s;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
 
+    /* position relative pour l'after */
+    position: relative;
+
+    animation: moveFromBottom 3.5s ease;
 }
 
 .btn:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+
+    /* letter-spacing: 2px;
+    padding: 15px 60px;
+    border-radius: 0;
+    box-shadow: 30px 25px 10px rgba(0, 0, 0, 0.2); */
 }
 
 .btn:active {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-
+    transform: translateY(-4px);
+    box-shadow: 4px 8px 7px rgba(0, 0, 0, 0.2);
 }
 .btn-white {
     background-color: white;
-    color: #777;
+    color: rgba(119, 119, 119, 0.6);
+    letter-spacing: 0.5px;
+}
+
+/* on va planquer une forme de bouton derriere */
+.btn::after {
+    /* on lui donne un content vide pour s'afficher */
+    content: "";
+
+    /* on reprend le display et la forme */
+    display: inline-block;
+    border-radius: 100px;
+
+    /* on lui donne la taille exacte */
+    height: 100%;
+    width: 100%;
+
+    /* on le positionne exactement au même endroit */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* on n'oublie pas de mettre en relatif où on veut commencer */
+
+    /* on le planque derrière */
+    z-index: -1;
+
+    /* on lui met une transition plus longue pour donner un effet de continuité */
+    transition: all 1s;
+}
+
+/* maintenant on va determiner le contenu */
+.btn-white::after {
+    /* on lui met la meme couleur pour créer l'illusion */
+    background-color: rgba(255, 255, 255, 0.507);
+}
+
+.btn:hover::after {
+    opacity: 0;
+    transform: scaleX(1.2) scaleY(1.9);
+    transition: 0.6s all;
 }
