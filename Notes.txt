@@ -48,3 +48,5 @@ Si on rajoute un delay à une animation,
 Permet l'héritage sur un élément qui, de base, ne l'est pas
 *, *::before,*::after      { box-sizing: inherit}
 body                                {box-sizing: border-box}
+
+npm run compile:sass

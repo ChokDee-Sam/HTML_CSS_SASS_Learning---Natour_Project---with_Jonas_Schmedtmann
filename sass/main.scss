@@ -1,0 +1,175 @@
+
+/*******************************/
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark :#777;
+
+/*******************************/
+/* Entire Website */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+   color: $color-grey-dark;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+/*******************************/
+
+/*******************************/
+/*  Header */
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.85),
+            rgba($color-primary-dark, 0.85)
+        ),
+        url(/img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+
+    clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%);
+    transition: all 0.6s ease;
+}
+/*******************************/
+
+/*******************************/
+/* Logo */
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+/*******************************/
+
+/*******************************/
+/* Text */
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Pour les enfants */
+    text-align: center;
+}
+
+.heading-primary {
+    color: white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+}
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+}
+/*******************************/
+
+/*******************************/
+/* Button */
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    border-radius: 10rem;
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
+    /* position relative pour l'after */
+    position: relative;
+
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
+
+    /* letter-spacing: 2px;
+    padding: 15px 60px;
+    border-radius: 0;
+    box-shadow: 30px 25px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.btn:active {
+    transform: translateY(-0.4rem);
+    box-shadow: 0.4rem 0.8rem 0.7rem rgba(0, 0, 0, 0.2);
+}
+.btn--white {
+    background-color: white;
+    color: rgba(119, 119, 119, 0.6);
+    letter-spacing: 0.05rem;
+}
+
+/* on va planquer une forme de bouton derriere */
+.btn::after {
+    /* on lui donne un content vide pour s'afficher */
+    content: "";
+
+    /* on reprend le display et la forme */
+    display: inline-block;
+    border-radius: 10rem;
+
+    /* on lui donne la taille exacte */
+    height: 100%;
+    width: 100%;
+
+    /* on le positionne exactement au même endroit */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* on n'oublie pas de mettre en relatif où on veut commencer */
+
+    /* on le planque derrière */
+    z-index: -1;
+
+    /* on lui met une transition plus longue pour donner un effet de continuité */
+    transition: all 1s;
+}
+
+/* maintenant on va determiner le contenu */
+.btn--white::after {
+    /* on lui met la meme couleur pour créer l'illusion */
+    background-color: rgba(255, 255, 255, 0.507);
+}
+
+.btn:hover::after {
+    opacity: 0;
+    transform: scaleX(1.2) scaleY(1.9);
+    transition: 0.6s all;
+}
+
