@@ -10,27 +10,30 @@ Dark green: #28b485
 
 /*******************************/
 /* Entire Website */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    /* line-height: 17; */
+    line-height: 1.7;
     lighting-color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 /*******************************/
 
 /*******************************/
 /*  Header */
 .header {
-    animation: moveHeader 1.7s;
-
     position: relative;
     height: 95vh;
     background-image: linear-gradient(
@@ -49,20 +52,20 @@ body {
 
 /*******************************/
 /* Logo */
-.logo-box {
+.header__logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo {
-    height: 35px;
+.header__logo {
+    height: 3.5rem;
 }
 /*******************************/
 
 /*******************************/
 /* Text */
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -75,24 +78,21 @@ body {
     color: white;
     text-transform: uppercase;
     backface-visibility: hidden;
-    margin-bottom: 60px;
-    text-shadow: 1px 1px 5px rgb(0, 0, 0, 0.3);
+    margin-bottom: 6rem;
+    text-shadow: 0.1rem 0.1rem 0.5rem rgb(0, 0, 0, 0.3);
 }
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
-    animation-name: moveFromLeft;
-    animation-duration: 1.6s;
 }
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
-    animation: moveFromBottom 2.6s;
+    letter-spacing: 1.74rem;
 }
 /*******************************/
 
@@ -100,25 +100,25 @@ body {
 /* Button */
 .btn:link,
 .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 25px;
     display: inline-block;
-    border-radius: 100px;
-
-    transition: all 0.3s;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
     font-weight: 700;
+
+    border-radius: 10rem;
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 
     /* position relative pour l'after */
     position: relative;
 
-    animation: moveFromBottom 3.5s ease;
+    transition: all 0.3s;
 }
 
 .btn:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.8rem);
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
 
     /* letter-spacing: 2px;
     padding: 15px 60px;
@@ -127,13 +127,13 @@ body {
 }
 
 .btn:active {
-    transform: translateY(-4px);
-    box-shadow: 4px 8px 7px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.4rem);
+    box-shadow: 0.4rem 0.8rem 0.7rem rgba(0, 0, 0, 0.2);
 }
-.btn-white {
+.btn--white {
     background-color: white;
     color: rgba(119, 119, 119, 0.6);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05rem;
 }
 
 /* on va planquer une forme de bouton derriere */
@@ -143,7 +143,7 @@ body {
 
     /* on reprend le display et la forme */
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
 
     /* on lui donne la taille exacte */
     height: 100%;
@@ -163,7 +163,7 @@ body {
 }
 
 /* maintenant on va determiner le contenu */
-.btn-white::after {
+.btn--white::after {
     /* on lui met la meme couleur pour créer l'illusion */
     background-color: rgba(255, 255, 255, 0.507);
 }

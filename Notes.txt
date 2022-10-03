@@ -43,3 +43,8 @@ Pour centrer un element facilement
 Si on rajoute un delay à une animation, 
     /* animation-fill-mode: backwards; */
         permet de debuter l'animation à 0%
+
+
+Permet l'héritage sur un élément qui, de base, ne l'est pas
+*, *::before,*::after      { box-sizing: inherit}
+body                                {box-sizing: border-box}
