@@ -1,7 +1,89 @@
 @charset "UTF-8";
+/* Header */
+@keyframes moveHeader {
+  0% {
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    transform: translateX(10rem) scale(0.85); }
+  40% {
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
+    /* clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); */ }
+  /* alternative en retirant le 40% */
+  75% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  100% {
+    clip-path: polygon(0 0%, 100% 0, 100% 75vh, 0 100%); } }
+
+/*******************************/
+.animation--moveHeader {
+  animation: moveHeader;
+  animation-duration: 1.7s; }
+
 /*******************************/
 /*******************************/
-/* Entire Website */
+/* Title : first line */
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+    letter-spacing: -50px; }
+  30% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  40% {
+    opacity: 0; }
+  70% {
+    transform: translateX(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    letter-spacing: 1; } }
+
+/*******************************/
+.animation--moveFromLeft {
+  animation: moveFromLeft;
+  animation-duration: 1.6s; }
+
+/*******************************/
+/*******************************/
+/* Title : sub  line */
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translatey(10.5rem); }
+  60% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+    letter-spacing: 1; } }
+
+/*******************************/
+.animation--moveFromBottom {
+  animation: moveFromBottom;
+  animation-duration: 2.6s; }
+
+/*******************************/
+/* Title : button */
+.timing--moreLong {
+  animation-duration: 3.5s;
+  animation-timing-function: ease; }
+
+/*******************************/
+/*******************************/
+/* test */
+@keyframes test {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  40% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  /* alternative en retirant le 40% */
+  /* 60% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+} */
+  100% {
+    clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%); } }
+
+/*******************************/
 *,
 *::before,
 *::after {
@@ -12,46 +94,14 @@ html {
   font-size: 62.5%; }
 
 body {
+  box-sizing: border-box; }
+
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-/*******************************/
-/*******************************/
-/*  Header */
-.header {
-  position: relative;
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)), url(/img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%);
-  transition: all 0.6s ease; }
-
-/*******************************/
-/*******************************/
-/* Logo */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-/*******************************/
-/*******************************/
-/* Text */
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* Pour les enfants */
-  text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: white;
@@ -59,79 +109,165 @@ body {
   backface-visibility: hidden;
   margin-bottom: 6rem;
   text-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.3); }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem; }
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
+.heading-secondary {
+  font-size: 3.5rem;
   font-weight: 700;
-  letter-spacing: 1.74rem; }
-
-/*******************************/
-/*******************************/
-/* Button */
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  text-decoration: none;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent; }
+
+.heading-tertiary {
   font-size: 1.6rem;
   font-weight: 700;
-  border-radius: 10rem;
-  padding: 1.5rem 2.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  /* position relative pour l'after */
-  position: relative;
-  transition: all 0.3s; }
+  text-transform: uppercase; }
 
-.btn:hover {
-  transform: translateY(-0.8rem);
-  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
-  /* letter-spacing: 2px;
-    padding: 15px 60px;
-    border-radius: 0;
-    box-shadow: 30px 25px 10px rgba(0, 0, 0, 0.2); */ }
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
 
-.btn:active {
-  transform: translateY(-0.4rem);
-  box-shadow: 0.4rem 0.8rem 0.7rem rgba(0, 0, 0, 0.2); }
+.u-center-text {
+  text-align: center; }
 
-.btn--white {
-  background-color: white;
-  color: rgba(119, 119, 119, 0.6);
-  letter-spacing: 0.05rem; }
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
 
-/* on va planquer une forme de bouton derriere */
-.btn::after {
-  /* on lui donne un content vide pour s'afficher */
-  content: "";
-  /* on reprend le display et la forme */
+.u-margin-bottom-medium {
+  margin-bottom: 4em; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.btn {
+  /* on va planquer une forme de bouton derriere */ }
+  .btn:link, .btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 10rem;
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    /* position relative pour l'after */
+    position: relative;
+    transition: all 0.3s; }
+  .btn:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover:after {
+      opacity: 0;
+      transform: scaleX(1.2) scaleY(1.9);
+      transition: 0.6s; }
+  .btn:active {
+    transform: translateY(-0.4rem);
+    box-shadow: 0.4rem 0.8rem 0.7rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: white;
+    color: rgba(119, 119, 119, 0.6);
+    letter-spacing: 0.05rem; }
+    .btn--white::after {
+      background-color: rgba(255, 255, 255, 0.507); }
+  .btn::after {
+    /* on lui donne un content vide pour s'afficher */
+    content: "";
+    /* on reprend le display et la forme */
+    display: inline-block;
+    border-radius: 10rem;
+    /* on lui donne la taille exacte */
+    height: 100%;
+    width: 100%;
+    /* on le positionne exactement au même endroit */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* on n'oublie pas de mettre en relatif où on veut commencer */
+    /* on le planque derrière */
+    z-index: -1;
+    /* on lui met une transition plus longue pour donner un effet de continuité */
+    transition: all 1s; }
+
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #55c57a;
   display: inline-block;
-  border-radius: 10rem;
-  /* on lui donne la taille exacte */
-  height: 100%;
-  width: 100%;
-  /* on le positionne exactement au même endroit */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* on n'oublie pas de mettre en relatif où on veut commencer */
-  /* on le planque derrière */
-  z-index: -1;
-  /* on lui met une transition plus longue pour donner un effet de continuité */
-  transition: all 1s; }
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  transition: all 0.4s; }
 
-/* maintenant on va determiner le contenu */
-.btn--white::after {
-  /* on lui met la meme couleur pour créer l'illusion */
-  background-color: rgba(255, 255, 255, 0.507); }
+.btn-text:hover {
+  background-color: #55c57a;
+  color: white;
+  box-shadow: 1rem 1rem 0rem rgba(119, 119, 119, 0.473);
+  transform: translateY(-5px); }
 
-.btn:hover::after {
-  opacity: 0;
-  transform: scaleX(1.2) scaleY(1.9);
-  transition: 0.6s all; }
+.btn-text:active {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(1px); }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3)  + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4)  + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4)  + 2 * 6rem); }
+
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)), url(/img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0%, 100% 0, 100% 75vh, 0 100%);
+  transition: all 0.6s ease; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Pour les enfants */
+    text-align: center; }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }

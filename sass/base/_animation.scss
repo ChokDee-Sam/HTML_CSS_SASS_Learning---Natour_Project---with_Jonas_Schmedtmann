@@ -1,0 +1,105 @@
+/* Header */
+@keyframes moveHeader {
+    0% {
+        clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+        transform: translateX(10rem) scale(0.85);
+    }
+    40% {
+        /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); */
+        /* clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); */
+    }
+    /* alternative en retirant le 40% */
+    75% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    100% {
+        clip-path: polygon(0 0%, 100% 0, 100% 75vh, 0 100%);
+    }
+}
+
+/*******************************/
+.animation--moveHeader {
+    animation: moveHeader;
+    animation-duration: 1.7s;
+}
+/*******************************/
+
+/*******************************/
+
+/* Title : first line */
+@keyframes moveFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+        letter-spacing: -50px;
+    }
+    30% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    40% {
+        opacity: 0;
+    }
+    70% {
+        transform: translateX(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        letter-spacing: 1;
+    }
+}
+/*******************************/
+.animation--moveFromLeft {
+    animation: moveFromLeft;
+    animation-duration: 1.6s;
+}
+/*******************************/
+
+/*******************************/
+/* Title : sub  line */
+@keyframes moveFromBottom {
+    0% {
+        opacity: 0;
+        transform: translatey(10.5rem);
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translatey(0);
+        letter-spacing: 1;
+    }
+}
+/*******************************/
+.animation--moveFromBottom {
+    animation: moveFromBottom;
+    animation-duration: 2.6s;
+}
+/*******************************/
+/* Title : button */
+.timing--moreLong {
+    animation-duration: 3.5s ;
+    animation-timing-function: ease;
+}
+/*******************************/
+
+/*******************************/
+/* test */
+@keyframes test {
+    0% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    40% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    /* alternative en retirant le 40% */
+    /* 60% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+} */
+    100% {
+        clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%);
+    }
+}
+/*******************************/
