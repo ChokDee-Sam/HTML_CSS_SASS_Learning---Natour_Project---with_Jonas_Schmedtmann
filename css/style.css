@@ -62,7 +62,7 @@
   animation: moveFromBottom;
   animation-duration: 2.6s; }
 
-.animation--moveFromBottom--forSection {
+.animation--moveFromBottom--forSections {
   animation: moveFromBottom;
   animation-duration: 4s; }
 
@@ -88,6 +88,22 @@
     clip-path: polygon(0 0%, 100% 0, 100% 75%, 0 100%); } }
 
 /*******************************/
+/*******************************/
+/* Title : fade in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  60% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/*******************************/
+.animation--fadeIn {
+  animation: fadeIn;
+  animation-duration: 4s;
+  /*******************************/ }
+
 *,
 *::before,
 *::after {
@@ -130,6 +146,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
+  display: inline-block;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
   color: transparent; }
@@ -251,6 +268,33 @@ body {
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.95); }
 
+.feature-box {
+  background-color: #f7f7f7;
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 13px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all 0.6s; }
+  .feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all 0.3s; }
+    .feature-box__icon:hover {
+      transform: scale(1.12); }
+  .feature-box:hover {
+    transform: translateY(-1rem) scale(1);
+    background-color: #f7f7f7;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.35);
+    transition: all 0.2s; }
+
+.feature-box:hover .feature-box__icon:not(:hover) {
+  transform: scale(1.12); }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -300,4 +344,12 @@ body {
     text-align: center; }
 
 .section-about {
-  padding: 10rem 0 25rem 0; }
+  padding: 9rem 0 20rem 0; }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)), url(/img/nat-4.jpg);
+  background-size: cover;
+  transform: skewY(-7deg); }
+  .section-features > * {
+    transform: skewY(7deg); }

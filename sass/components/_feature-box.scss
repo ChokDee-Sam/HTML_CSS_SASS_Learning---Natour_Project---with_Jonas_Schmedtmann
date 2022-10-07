@@ -1,0 +1,44 @@
+.feature-box {
+    background-color: rgba($color-grey-light-1, 1);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 13px;
+    box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
+    transition: all 0.6s;
+    // transform: skewY(-7deg);
+
+    &__icon {
+        font-size: 6rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        background-image: linear-gradient(
+            to right,
+            $color-primary-light,
+            $color-primary-dark
+        );
+        -webkit-background-clip: text;
+        color: transparent;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: scale(1.12);
+        }
+    }
+
+    &:hover {
+        transform: translateY(-1rem) scale(1);
+        background-color: rgba($color-grey-light-1, 1);
+        box-shadow: 0 0 3rem rgba(rgb(0, 0, 0), 0.35);
+        transition: all 0.2s;
+    }
+}
+
+// Je galère à l'écrire en scss !
+.feature-box:hover .feature-box__icon:not(:hover) {
+    transform: scale(1.12);
+}
+
+// &:hover &feature-box__icon:not(:hover) {
+//     transform: scale(1.2);
+// }

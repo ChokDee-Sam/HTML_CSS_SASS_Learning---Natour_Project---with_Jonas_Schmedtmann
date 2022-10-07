@@ -118,3 +118,8 @@ Définir l'absolute intelligemment
     left si proche coté gauche 
     right si proche coté droit
     
+
+    // uniquement pour l'enfant direct
+    & > * {
+        transform: skewY(7deg);
+    }
