@@ -112,3 +112,9 @@ npm run compile:sass
     transform: scaleX(1.2) scaleY(1.9);
     transition: 0.6s;
 }
+
+
+Définir l'absolute intelligemment
+    left si proche coté gauche 
+    right si proche coté droit
+    

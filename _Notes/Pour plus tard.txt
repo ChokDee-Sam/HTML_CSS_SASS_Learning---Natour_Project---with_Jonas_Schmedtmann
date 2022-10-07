@@ -1,0 +1,9 @@
+************** DONE*******************
+retirer le padding du body 
+    >border white (meme taille)
+
+retirer le background-color du section-about + margin top bizarre
+    >background-color sur body
+
+ animation on section-about
+ ***************************************

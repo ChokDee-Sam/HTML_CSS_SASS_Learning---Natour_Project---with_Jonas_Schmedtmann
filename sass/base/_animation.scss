@@ -77,10 +77,14 @@
     animation: moveFromBottom;
     animation-duration: 2.6s;
 }
+.animation--moveFromBottom--forSection {
+    animation: moveFromBottom;
+    animation-duration: 4s;
+}
 /*******************************/
 /* Title : button */
 .timing--moreLong {
-    animation-duration: 3.5s ;
+    animation-duration: 3.5s;
     animation-timing-function: ease;
 }
 /*******************************/
