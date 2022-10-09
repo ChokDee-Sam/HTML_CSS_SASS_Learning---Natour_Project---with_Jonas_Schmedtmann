@@ -123,3 +123,5 @@ Définir l'absolute intelligemment
     & > * {
         transform: skewY(7deg);
     }
+
+    

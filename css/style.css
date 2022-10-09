@@ -101,9 +101,44 @@
 /*******************************/
 .animation--fadeIn {
   animation: fadeIn;
-  animation-duration: 4s;
-  /*******************************/ }
+  animation-duration: 4s; }
 
+/*******************************/
+/*******************************/
+/*******************************/
+@keyframes cardFront {
+  0% {
+    transform: translateX(0);
+    transform: rotateY(0deg); }
+  75% {
+    transform: translateX(300px); }
+  100% {
+    transform: translateX(0);
+    transform: rotateY(180deg); } }
+
+/*******************************/
+.animation__cardFront {
+  animation: cardFront;
+  animation-duration: 0.6s; }
+
+/*******************************/
+/*******************************/
+@keyframes cardBack {
+  0% {
+    transform: translateX(0);
+    transform: rotateY(-180deg); }
+  75% {
+    transform: translateX(300px); }
+  100% {
+    transform: translateX(0);
+    transform: rotateY(0deg); } }
+
+/*******************************/
+.animation__cardBack {
+  animation: cardBack;
+  animation-duration: 0.6s; }
+
+/*******************************/
 *,
 *::before,
 *::after {
@@ -241,6 +276,33 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   transform: translateY(1px); }
 
+.card {
+  position: relative;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  height: 50rem;
+  transition: all 0.5s;
+  animation: cardMove; }
+  .card__side {
+    position: absolute;
+    background-color: #55c57a;
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s ease;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; }
+    .card__side--front {
+      background-color: white; }
+    .card__side--back {
+      transform: rotateY(-180deg); }
+  .card:hover .card__side--front {
+    transform: rotateY(180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
+
 .composition {
   position: relative; }
   .composition__photo {
@@ -313,13 +375,13 @@ body {
   .row .col-1-of-3 {
     width: calc((100% - 2 * 6rem) / 3); }
   .row .col-2-of-3 {
-    width: calc(2 * ((100% - 2 * 6rem) / 3)  + 6rem); }
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
   .row .col-1-of-4 {
     width: calc((100% - 3 * 6rem) / 4); }
   .row .col-2-of-4 {
-    width: calc(2 * ((100% - 3 * 6rem) / 4)  + 6rem); }
+    width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
   .row .col-3-of-4 {
-    width: calc(3 * ((100% - 3 * 6rem) / 4)  + 2 * 6rem); }
+    width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .header {
   position: relative;
@@ -344,7 +406,7 @@ body {
     text-align: center; }
 
 .section-about {
-  padding: 9rem 0 20rem 0; }
+  padding: 9rem 0 15rem 0; }
 
 .section-features {
   padding: 20rem 0;
@@ -353,3 +415,6 @@ body {
   transform: skewY(-7deg); }
   .section-features > * {
     transform: skewY(7deg); }
+
+.section-tours {
+  padding: 19em 0 20rem 0; }
